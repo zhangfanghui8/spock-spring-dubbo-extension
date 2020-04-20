@@ -7,11 +7,12 @@ this jar can solve this problem,you just need to load this jar.
 
 for instance:
 
-interface FinanceOrderAppService{
+public interface FinanceOrderAppService{
 String test();
 }
 
 @Component
+
 Class ClassA{
     @Reference
     private DubboService dubboService
