@@ -4,3 +4,32 @@ In the project of spring Dubbo, the jar of spock-spring
 can not mock  bean that the member variables of the Java class containing the annotation @reference.
 
 this jar can solve this problem,you just need to load this jar.
+
+for instance:
+
+@Component
+Class ClassA{
+    @Reference
+    private DubboService dubboService
+    
+    public String testA(){
+          return dubboService.test();
+    }
+}
+
+Class Test extends Specification{
+    @Autowired
+    private ClassA classA
+    
+    @SpringBean
+    DubboService dubboService = Mock() {
+        test() >> "mock"
+    }
+    
+     def "test"() {
+     when:
+     def a = classA.testA()
+     then:
+     a == "mock"
+     }
+}
