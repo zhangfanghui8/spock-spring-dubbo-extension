@@ -11,6 +11,7 @@ for instance:
 public interface FinanceOrderAppService{
 
 String test();
+
 }
 
 @Component
