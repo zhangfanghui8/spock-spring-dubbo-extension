@@ -7,6 +7,10 @@ this jar can solve this problem,you just need to load this jar.
 
 for instance:
 
+interface FinanceOrderAppService{
+String test();
+}
+
 @Component
 Class ClassA{
     @Reference
@@ -33,3 +37,8 @@ Class Test extends Specification{
      a == "mock"
      }
 }
+
+
+
+
+In this example,if you add this jar,the DubboService bean can be mocked
